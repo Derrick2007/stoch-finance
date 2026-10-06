@@ -24,7 +24,7 @@
 
 ## Next task
 
-Start with European call payoff and a short understanding check (K=100; S_T=90,100,115). Await the user's answer before extending teaching to expectation and sample averages. Track learning evidence in docs/learning/LEARNING_LOG.md; implemented code is not evidence of understanding. Then continue SESSION_01 in small steps. Do not jump to MLMC, Heston, real market data, GPU setup or a complete package.
+The user confirmed understanding of declining exercise below strike and requested continuing. Teach expectation and Monte Carlo sample averages using a discrete example; await the new short check before implementing a small NumPy sampling example. Track evidence in docs/learning/LEARNING_LOG.md; implemented code is not evidence of understanding. Then continue SESSION_01 in small steps. Do not jump to MLMC, Heston, real market data, GPU setup or a complete package.
 
 ## Continuous learning record — 2026-10-05
 
