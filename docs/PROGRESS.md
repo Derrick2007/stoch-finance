@@ -31,6 +31,7 @@ The user accepted the introductory code explanation and ended the session. Next 
 - Prepared the requested English personal journal: docs/learning/2026-10-06-first-monte-carlo.md.
 - Recorded concepts, code mapping, existing experiment output, remaining questions and the next learning step. Clearly attributed the run to the assistant.
 - Updated the journal index and continuous learning record. Documentation-only work; no new algorithms or experiments.
+- Translated the repository README into English and clarified the current teaching example versus the planned GBM pricing deliverable. Repository access permissions were not changed.
 
 ## Discrete Monte Carlo learning example — 2026-10-06
 
