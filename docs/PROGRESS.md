@@ -24,7 +24,13 @@
 
 ## Next task
 
-Resume teaching from project purpose, random numbers and sample averages before extending implementation. The user needs foundational explanations; implemented code is not evidence of understanding. Then continue SESSION_01 in small steps. Do not jump to MLMC, Heston, real market data, GPU setup or a complete package.
+Start with European call payoff and a short understanding check (K=100; S_T=90,100,115). Await the user's answer before extending teaching to expectation and sample averages. Track learning evidence in docs/learning/LEARNING_LOG.md; implemented code is not evidence of understanding. Then continue SESSION_01 in small steps. Do not jump to MLMC, Heston, real market data, GPU setup or a complete package.
+
+## Continuous learning record — 2026-10-05
+
+- Added docs/learning/LEARNING_LOG.md for teaching topics, user feedback, understanding evidence and next steps; linked it from the learning index.
+- Personal summaries remain in dated journal entries. Current understanding check is pending; no claim of mastery.
+- Documentation-only change; no new algorithms or numerical experiments.
 
 ## Private GitHub and learning journal — 2026-10-05
 
