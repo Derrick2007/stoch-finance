@@ -19,7 +19,7 @@
 
 - Core GBM sampling and Monte Carlo implementations (Black–Scholes reference is now implemented).
 - Monte Carlo statistical checks, actual sampling experiments and convergence results.
-- Initial GitHub push verification (private repository has been created).
+- Public release (current GitHub repository is intentionally private).
 - No novel research contribution has been established.
 
 ## Next task
@@ -31,7 +31,7 @@ Resume teaching from project purpose, random numbers and sample averages before 
 - Created private repository: https://github.com/Derrick2007/stoch-finance.
 - Initialized local Git on main; added .gitignore to exclude .venv, caches, secrets, raw data and generated results.
 - Added docs/learning index, reusable journal template and an introductory entry. Personal understanding and review answers remain for the user to write.
-- First push verification is pending; no new numerical algorithms were implemented in this step.
+- First push succeeded: local main tracks origin/main; initial commit 87fb445. No new numerical algorithms were implemented in this step.
 
 ## Session 01 — first small step, 2026-10-05
 
