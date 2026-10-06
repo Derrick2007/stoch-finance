@@ -24,7 +24,13 @@
 
 ## Next task
 
-The user confirmed understanding of declining exercise below strike and requested continuing. Teach expectation and Monte Carlo sample averages using a discrete example; await the new short check before implementing a small NumPy sampling example. Track evidence in docs/learning/LEARNING_LOG.md; implemented code is not evidence of understanding. Then continue SESSION_01 in small steps. Do not jump to MLMC, Heston, real market data, GPU setup or a complete package.
+Review the small scripts/learn_discrete_mc.py example with the user, then explain sampling error before moving to continuous random variables and GBM. Track evidence in docs/learning/LEARNING_LOG.md; implemented code is not evidence of understanding. Continue SESSION_01 in small steps.
+
+## Discrete Monte Carlo learning example — 2026-10-06
+
+- Implemented and executed scripts/learn_discrete_mc.py with project .venv (CPU/float64, seed=20261006, N=10000).
+- Toy stock outcomes 80/100/130 with probabilities 0.2/0.4/0.4, K=100: expected terminal payoff reference 12; sample estimate 12.246, matching observed outcome frequencies.
+- This is an introductory expectation calculation, not risk-neutral GBM pricing. No convergence experiment, performance benchmark or new test suite was added.
 
 ## Continuous learning record — 2026-10-05
 
