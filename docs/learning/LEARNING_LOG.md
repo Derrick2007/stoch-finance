@@ -55,5 +55,11 @@ K=100 时，分别考虑 S_T=90、100、115：到期收益是多少，是否行�
 - 运行命令：.venv/Scripts/python.exe scripts/learn_discrete_mc.py。Python 3.12.14 / NumPy 2.5.3，CPU / float64；seed=20261006，N=10000，K=100，股价情形 80/100/130，概率 0.2/0.4/0.4。
 - 实际输出：频率 0.1979/0.3939/0.4082，估计 12.246，精确参考 12，抽样误差 +0.246。运行成功；样本中 130 的次数为 4082，与 30*4082/10000=12.246 一致。未做性能测量或收敛实验。
 - 本轮解释 seed 的可复现用途、样本数组与逐元素 payoff、有限样本频率不同于理论概率。单次偏差不说明系统性高估。
-- 用户尚未对代码反馈；不记为掌握。
+- 用户反馈“ok没问题”，并决定今天结束。解释已获用户认可；未报告独立运行或脱离笔记复述，不推断独立掌握。
 - 下一步：用户运行或阅读代码，理解为何 40% 的概率不强制样本中恰好 40%；再学习抽样误差大小。
+
+### Session close — 2026-10-06
+
+- At the user's request, prepared an English personal journal in 2026-10-06-first-monte-carlo.md and linked it from the learning index.
+- Included the learning summary, code mapping, assistant-run experiment results, remaining topics, and review questions. No independent user run or full mastery is claimed.
+- Stop teaching for today. Resume with sampling error in the same discrete example next session.
