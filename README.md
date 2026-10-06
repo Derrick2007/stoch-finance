@@ -1,84 +1,91 @@
 # Stochastic Simulation & Computational Finance
 
-An independent long-term learning and computational research project, started on October 5, 2026. The goals are to develop mathematical understanding and coding skills, build reproducible GitHub outputs, and work toward a research report. A future paper will depend on experimental results and a review of related work.
+Numerical experiments for estimating expectations in stochastic systems, with an initial focus on European option pricing. The project examines accuracy, sampling uncertainty, discretization bias, and computational cost using reproducible reference problems.
 
-## What We Study
+## Scope
 
-How can we reliably and efficiently estimate expectations of random systems under a specified error tolerance? We begin with option pricing as a controlled example, then compare stochastic numerical methods and Monte Carlo techniques.
-
-The initial experiments use synthetic models and require no market data API, paid data, or real trading. The project focuses on numerical computation rather than stock-price forecasting.
-
-## Initial Model
-
-Risk-neutral geometric Brownian motion (GBM), with no dividends and constant interest rate and volatility:
+The initial model is geometric Brownian motion (GBM) with constant interest rate and volatility, no dividends, and risk-neutral dynamics:
 
 ```text
 dS_t = r S_t dt + sigma S_t dW_t
 S_T = S_0 exp((r - sigma²/2)T + sigma sqrt(T) Z), Z ~ N(0,1)
-V = exp(-rT) E_Q[max(S_T-K, 0)]
+C = exp(-rT) E_Q[max(S_T - K, 0)]
 ```
 
-Initial parameters: S0=100, K=100, r=0.05, sigma=0.20, T=1. Here, r is the risk-neutral drift used for pricing; it should not be replaced by a historical average return. The expectation is taken under the risk-neutral measure Q.
+Baseline parameters are `S0=100`, `K=100`, `r=0.05`, `sigma=0.20`, and `T=1`. The Black–Scholes call price is approximately `10.4505835722`. The rate `r` is the risk-neutral drift, rather than a forecast of historical returns.
 
-The Black–Scholes European call formula provides a reference price:
+Experiments use synthetic models. Market forecasting, broker integration, and real-money trading are outside the project scope.
 
-```text
-d1 = [ln(S0/K) + (r + sigma²/2)T] / (sigma sqrt(T))
-d2 = d1 - sigma sqrt(T)
-V = S0 Phi(d1) - K exp(-rT) Phi(d2)
-```
+## Implementation Status
 
-The initial implementation requires S0, K, T, sigma > 0. Degenerate boundary cases will be implemented and validated separately.
+| Component | Status |
+|---|---|
+| Black–Scholes European call reference | Implemented; tested against a known price, normal CDF values, no-arbitrage bounds, and invalid inputs |
+| Discrete Monte Carlo example | Implemented; fixed-seed run checked against an exact expectation |
+| Exact GBM terminal sampling and pricing | Planned |
+| Standard errors, confidence intervals, and repeated error experiments | Planned |
+| SDE discretization, variance reduction, and MLMC | Planned |
 
-## Technical Approach
+The discrete example estimates expected terminal payoff under a specified toy distribution. It does not yet implement risk-neutral GBM pricing. The reference formula currently requires positive spot, strike, volatility, and maturity; finite negative interest rates are allowed.
 
-- Python 3.12, NumPy, Matplotlib, and pytest.
-- CPU and float64 initially; no GPU, ROCm, CUDA, or PyTorch requirement.
-- NumPy Generator for random sampling, with seeds and parameters recorded for each experiment.
-- Implement and validate in Python first. Add C++ only for a concrete bottleneck supported by profiling.
-- Separate virtual environments on Windows and macOS; do not copy `.venv` between machines.
+## Quick Start
 
-See the [setup instructions](SETUP.md), [project roadmap](docs/PROJECT_PLAN.md), [current progress](docs/PROGRESS.md), and [first learning task](docs/SESSION_01.md).
+Use Python 3.12 and a separate virtual environment on each machine. The implementation uses CPU computation and float64; no GPU toolchain is required.
 
-## Environment Check
-
-On Windows, run from the project directory:
+### Windows (PowerShell)
 
 ```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
 .\.venv\Scripts\python.exe scripts\check_environment.py
+.\.venv\Scripts\python.exe scripts\learn_discrete_mc.py
+.\.venv\Scripts\python.exe -m pytest -q
 ```
 
-On macOS:
+### macOS / Linux
 
 ```bash
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements-lock.txt
 .venv/bin/python scripts/check_environment.py
+.venv/bin/python scripts/learn_discrete_mc.py
+.venv/bin/python -m pytest -q
 ```
 
-This script checks the environment, random sampling, and headless plotting. It is not a pricing experiment. Core algorithms are developed incrementally alongside the learning sessions.
+`requirements.txt` specifies compatible dependency ranges; `requirements-lock.txt` records the installed version snapshot. Cross-platform installations should be verified independently. The environment check validates imports, random sampling, and headless plotting; scientific validation is separate.
 
-## Current Starting Point
+## Numerical Validation
 
-The Black–Scholes reference formula is implemented and tested. A small [discrete Monte Carlo example](scripts/learn_discrete_mc.py) introduces sampling, payoff calculation, and sample averages. That teaching example estimates expected terminal payoff; it does not yet implement risk-neutral GBM pricing.
+- Retain exact GBM terminal sampling as the baseline for European payoffs.
+- Distinguish sampling variance from time-discretization bias.
+- Record seeds, parameters, sample counts, dependency versions, and reference values. Record timing and time steps where applicable.
+- Assess Monte Carlo error with independent repetitions; a single error need not decrease monotonically with sample count.
+- Treat CLT-based confidence intervals as approximate measures of sampling uncertainty, not bounds on discretization bias.
+- Compare methods at a stated accuracy target and computational cost. MLMC is not assumed to outperform exact-terminal Monte Carlo.
 
-## First Target Deliverable
+## Roadmap
 
-Exact GBM terminal sampling, European call Monte Carlo pricing, standard errors and approximate confidence intervals, comparison with Black–Scholes, and error experiments using independent repetitions.
+1. Validate exact-terminal GBM pricing against Black–Scholes, including uncertainty estimates and repeated error experiments.
+2. Compare Euler–Maruyama and Milstein using coupled Brownian increments; measure strong error and weak bias.
+3. Evaluate antithetic sampling and control variates at comparable cost.
+4. Implement MLMC coupling and level allocation, and measure variance, bias, and cost.
+5. Select a suitable payoff or model for a focused experimental report informed by related literature.
 
-Path discretization and multilevel Monte Carlo (MLMC) come later. Because a vanilla European call under GBM allows exact terminal sampling, that baseline must remain in comparisons. MLMC is not assumed to be faster. Path-dependent payoffs or models without exact sampling may offer more suitable applications.
+## Repository Guide
 
-## GitHub
+- [Project roadmap](docs/PROJECT_PLAN.md)
+- [Current implementation and experiment progress](docs/PROGRESS.md)
+- [Setup notes](SETUP.md)
+- [Technical learning notes and experiment journal](docs/learning/README.md)
+- [Black–Scholes reference](black_scholes.py)
+- [Discrete Monte Carlo example](scripts/learn_discrete_mc.py)
+- [Reference tests](tests/test_black_scholes.py)
 
-A private [GitHub repository](https://github.com/Derrick2007/stoch-finance) stores the code, documentation, and learning history. Virtual environments, large raw datasets, and local caches are excluded from Git. A v0.1 release will be prepared after the first validated experiment. An open-source license has not yet been selected.
-
-## Long-Term Learning Journal
-
-Start at the [learning journal index](docs/learning/README.md). Summarize concepts in your own words, record open questions, and revisit them without notes. The journal template and code share the same repository so that learning and corrections remain traceable.
-
-- [Continuous learning record](docs/learning/LEARNING_LOG.md)
-- [First Monte Carlo lesson: English personal journal](docs/learning/2026-10-06-first-monte-carlo.md)
+Virtual environments, caches, and large generated data are excluded from Git. No open-source license has been selected.
 
 ## References
 
-- [Giles's MLMC research](https://people.maths.ox.ac.uk/gilesm/mlmc.html)
-- [Giles's accompanying software](https://people.maths.ox.ac.uk/gilesm/mlmc/): financial SDE examples and implementations in several languages. Used as a reference; any borrowed code must follow its license and be attributed.
-- [Python venv documentation](https://docs.python.org/3/library/venv.html)
+- [M. B. Giles: Multilevel Monte Carlo research](https://people.maths.ox.ac.uk/gilesm/mlmc.html)
+- [Giles: accompanying software and examples](https://people.maths.ox.ac.uk/gilesm/mlmc/)
+
+These resources inform the planned comparisons. Any third-party code incorporated into the project must retain appropriate attribution and comply with its license.

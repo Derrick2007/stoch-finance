@@ -26,6 +26,12 @@
 
 The user accepted the introductory code explanation and ended the session. Next session: explain the size of sampling error using the same discrete example before moving to continuous random variables and GBM. Track evidence in docs/learning/LEARNING_LOG.md; independent reproduction is not yet reported.
 
+## Repository presentation — 2026-10-06
+
+- Reworked README.md as an English project overview: scope, implementation status, quick start, validation, roadmap and repository guide.
+- Removed personal-goal framing from the front page; retained learning notes as linked supporting documentation.
+- Documentation-only update; no access permissions or algorithms changed.
+
 ## Personal journal and session close — 2026-10-06
 
 - Prepared the requested English personal journal: docs/learning/2026-10-06-first-monte-carlo.md.
