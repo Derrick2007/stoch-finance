@@ -23,7 +23,14 @@
 
 ## Next task
 
-Session closed at the user's request. Next: extend the existing repetition loop to N=1000,10000,100000 and summarize repeated RMSE, mean SE, coverage and timing. Do not add SDE discretization or MLMC yet.
+At the user's request, performed a targeted literature/feasibility screen (docs/RESEARCH_SCREEN.md). Provisional exploration: finite-budget geometric control variates for a discrete arithmetic Asian call. Next: explain path averages and implement one exact GBM monitoring path; validate before adopting the topic. Multi-N baseline remains useful but is no longer the sole next task. No novelty is established.
+
+## Literature and topic feasibility screen — 2026-10-07
+
+- Screened classical Asian controls, generalized controls, MLMC, pilot-weight/cost work and studies of AI-assisted scientific ideation. Reading depth and full-text access limits are recorded per source.
+- Classical Asian control variates and pilot allocation both have existing literature; narrowed to a provisional learning/empirical study, not a promised new method.
+- Saved candidate comparison, bounded experimental design, reference uncertainty requirements, estimated learner hours and go/no-go criteria in docs/RESEARCH_SCREEN.md.
+- No new pricing algorithms or feasibility experiment implemented; computational and originality judgments remain provisional.
 
 ## Exact GBM pricing and repeated validation — 2026-10-07
 
