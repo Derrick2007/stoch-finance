@@ -14,6 +14,7 @@
 ## 日志索引
 
 - [持续学习过程记录](LEARNING_LOG.md)：每轮讲到哪里、理解检查和下一步，由助手更新。
+- [2026-10-07: Exact GBM Pricing and Repeated Validation](2026-10-07-gbm-pricing.md) — user-run pricing, refactoring, and repeated experiment results.
 - [2026-10-06: My First Monte Carlo Example](2026-10-06-first-monte-carlo.md) — English personal journal, recorded results, and review questions.
 - [2026-10-05：项目入门](2026-10-05-project-introduction.md)（学习起点，个人总结待填写）
 - [日志模板](TEMPLATE.md)

@@ -22,8 +22,9 @@ Experiments use synthetic models. Market forecasting, broker integration, and re
 |---|---|
 | Black–Scholes European call reference | Implemented; tested against a known price, normal CDF values, no-arbitrage bounds, and invalid inputs |
 | Discrete Monte Carlo example | Implemented; fixed-seed run checked against an exact expectation |
-| Exact GBM terminal sampling and pricing | Planned |
-| Standard errors, confidence intervals, and repeated error experiments | Planned |
+| Exact GBM terminal sampling and pricing | Implemented; two fixed-seed runs checked against Black–Scholes |
+| Standard errors, confidence intervals, and repeated error experiments | Implemented; 100 repetitions at N=100,000, RMSE 0.046604, mean SE 0.046571, coverage 96% |
+| Multi-N convergence and comparative timing | Planned |
 | SDE discretization, variance reduction, and MLMC | Planned |
 
 The discrete example estimates expected terminal payoff under a specified toy distribution. It does not yet implement risk-neutral GBM pricing. The reference formula currently requires positive spot, strike, volatility, and maturity; finite negative interest rates are allowed.
@@ -39,6 +40,7 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
 .\.venv\Scripts\python.exe scripts\check_environment.py
 .\.venv\Scripts\python.exe scripts\learn_discrete_mc.py
+.\.venv\Scripts\python.exe scripts\learn_gbm.py
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
@@ -49,6 +51,7 @@ python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements-lock.txt
 .venv/bin/python scripts/check_environment.py
 .venv/bin/python scripts/learn_discrete_mc.py
+.venv/bin/python scripts/learn_gbm.py
 .venv/bin/python -m pytest -q
 ```
 
@@ -79,6 +82,8 @@ python3.12 -m venv .venv
 - [Technical learning notes and experiment journal](docs/learning/README.md)
 - [Black–Scholes reference](black_scholes.py)
 - [Discrete Monte Carlo example](scripts/learn_discrete_mc.py)
+- [Exact-terminal GBM pricing experiment](scripts/learn_gbm.py)
+- [Recorded pricing and repeated-validation results](docs/learning/2026-10-07-gbm-pricing.md)
 - [Reference tests](tests/test_black_scholes.py)
 
 Virtual environments, caches, and large generated data are excluded from Git. No open-source license has been selected.

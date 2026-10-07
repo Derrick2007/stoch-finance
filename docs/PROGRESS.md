@@ -1,4 +1,4 @@
-# Current status — 2026-10-06
+# Current status — 2026-10-07
 
 ## Confirmed context
 
@@ -17,14 +17,22 @@
 
 ## Not yet completed
 
-- Core GBM sampling and Monte Carlo implementations (Black–Scholes reference is now implemented).
-- Monte Carlo statistical checks, actual sampling experiments and convergence results.
+- Multi-N convergence and comparative cost experiments; broader GBM parameter/edge-case tests.
 - Public release (current GitHub repository is intentionally private).
 - No novel research contribution has been established.
 
 ## Next task
 
-The user resumed, reported AP Statistics and Math 170E background, and requested moving beyond basic statistics. Brownian increments and Ito's log-GBM correction have been explained; now connect the exact solution to risk-neutral pricing. Next implementation: a small exact GBM terminal sampler, followed by discounted payoffs and scientific checks. Independent derivation/reproduction is not yet reported.
+Session closed at the user's request. Next: extend the existing repetition loop to N=1000,10000,100000 and summarize repeated RMSE, mean SE, coverage and timing. Do not add SDE discretization or MLMC yet.
+
+## Exact GBM pricing and repeated validation — 2026-10-07
+
+- Implemented by the user with guided feedback: scripts/learn_gbm.py, exact risk-neutral terminal samples, discounted call payoff, price/SE, and 100 repetitions. Saved with minimal cleanup and run metadata.
+- User ran two seeds and the repeated experiment; assistant reproduced the final metrics using project .venv (Python 3.12.14, NumPy 2.5.3, CPU/float64).
+- S0=K=100, r=0.05, sigma=0.2, T=1; seed=20261007, N=100000, repetitions=100; reference=10.450583572185565.
+- Verified output: mean price=10.456497450204715, RMSE=0.04660363215782154, mean SE=0.046571302813908415, coverage=0.96. Consistent with sampling uncertainty; no multi-N convergence claim.
+- Save-time loop timing=0.159226 seconds, excluding startup/reporting; single observation, not a benchmark. Existing reference tests: 34 passed in 0.04 seconds; dedicated GBM test suite still proposed.
+- English journal and detailed results: docs/learning/2026-10-07-gbm-pricing.md. No time-discretization method implemented; exact terminal sampling remains the baseline.
 
 ## Repository presentation — 2026-10-06
 

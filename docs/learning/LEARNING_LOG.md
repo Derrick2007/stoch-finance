@@ -12,7 +12,7 @@
 
 ## 当前学习位置
 
-GBM exact solution and risk-neutral pricing. Next: implement a small exact-terminal sampler, then discounted payoffs and validation.
+Exact-terminal GBM call pricing and 100-repetition validation completed. Session closed; next: automated multi-N error and cost comparison.
 
 ## 2026-10-05 — 调整学习节奏，开始 payoff
 
@@ -71,3 +71,13 @@ K=100 时，分别考虑 S_T=90、100、115：到期收益是多少，是否行�
 - This step connects integration of log GBM to exact terminal sampling and introduces real-world measure P versus risk-neutral measure Q.
 - Pricing assumptions: frictionless Black–Scholes market, no dividends, constant r and sigma, continuous trading, no arbitrage and replicability. Under Q, drift is r and discounted stock is a martingale; discounted replicable payoff expectation gives its price. This is not a forecast that actual returns equal r.
 - No new code or numerical experiment in this step. Next: implement the exact-terminal GBM sampler in a small, explained step before assembling the pricing estimate.
+
+## 2026-10-07 — User implementation and session close
+
+- User wrote the GBM exponent, initially omitted the 1/2 correction, and corrected it after feedback; clarified that maturity T is measured in years.
+- User ran exact terminal sampling, payoff calculation, discounting and SE/CI reporting, providing terminal output for two seeds.
+- User refactored to estimate_call after feedback on definition order and duplicate sampling; reproduced the original seed-20261007 result.
+- User skipped a manual N-scaling exercise and ran 100 fresh-batch repetitions at N=100000. Results: mean 10.456497450204715, RMSE 0.04660363215782154, mean SE 0.046571302813908415, coverage 0.96.
+- Assistant reproduced the final metrics when saving. Minimal cleanup added a main guard, n >= 2 validation, metadata and loop timing; no new method or multi-N experiment.
+- Saved the requested English personal journal in 2026-10-07-gbm-pricing.md. User-run evidence is recorded without asserting independent mastery of Ito derivations.
+- Next session: multi-N repeated RMSE and cost table. Stop for today.
