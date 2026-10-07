@@ -2,6 +2,8 @@
 
 ## Decision summary
 
+Status clarification after the project-goals discussion: this is a screened candidate, not a locked research topic. The next 4–6 weeks combine close reading, baseline implementation and targeted experiments before deciding whether to pursue it. See PROJECT_PLAN.md for deliverable and reassessment criteria.
+
 Provisional recommendation: a bounded computational study of finite-budget control variates for a discretely monitored arithmetic Asian call under risk-neutral GBM. Start as replication and empirical analysis, not a claim of a new algorithm. Do not commit to publication or replace the roadmap before a small feasibility experiment.
 
 Working question: When the total simulation budget includes coefficient estimation, when is an independently pilot-estimated geometric-Asian control coefficient preferable to a fixed coefficient of one?

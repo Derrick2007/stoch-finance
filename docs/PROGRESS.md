@@ -7,7 +7,7 @@
 - C++ coursework and some Python experience; stochastic calculus and PyTorch proficiency not yet established.
 - Goals: mathematical and coding development, resume, public GitHub work, potential future research report/paper. Lab fit optional.
 - Hardware: MacBook and Ryzen 9700X + RX9070XT desktop. GPU compatibility is deferred; initial work uses CPU.
-- Selected direction: stochastic simulation and computational finance. Candidate discovery is complete; do not restart selection unless requested.
+- Selected field: stochastic simulation and computational finance. Specific research question remains provisional; the user requested literature-grounded topic exploration. Do not reopen unrelated field selection without a reason discussed with the user.
 
 ## Completed
 
@@ -31,6 +31,14 @@ At the user's request, performed a targeted literature/feasibility screen (docs/
 - Classical Asian control variates and pilot allocation both have existing literature; narrowed to a provisional learning/empirical study, not a promised new method.
 - Saved candidate comparison, bounded experimental design, reference uncertainty requirements, estimated learner hours and go/no-go criteria in docs/RESEARCH_SCREEN.md.
 - No new pricing algorithms or feasibility experiment implemented; computational and originality judgments remain provisional.
+
+## Goals and contribution criteria — 2026-10-07
+
+- Updated PROJECT_PLAN.md to distinguish a complete reproducible computational project from the stretch goal of an original publishable contribution.
+- Agreed target: a defined question, verified baseline, fair comparisons, evidence-bearing figures, maintainable code and a technical report; introductory scripts alone are not the final deliverable.
+- Candidate Asian/pilot-budget topic is not locked. Proposed 4–6 week exploration alternates learning, reproduction, close reading and targeted experiments before selecting a narrow question.
+- Reassess if work only adds code without interpretable results. Publication, originality and resume impact are not guaranteed; claims must match demonstrated contributions.
+- Documentation only: no new algorithms, experiments or established literature gap in this update.
 
 ## Exact GBM pricing and repeated validation — 2026-10-07
 

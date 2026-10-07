@@ -12,7 +12,7 @@
 
 ## 当前学习位置
 
-Exact-terminal GBM call pricing and 100-repetition validation completed. Session closed; next: automated multi-N error and cost comparison.
+Exact-terminal GBM call pricing and 100-repetition validation completed. Following the user's topic discussion, next: explain path averages and build a small validated path-dependent baseline as part of provisional topic exploration. Multi-N comparison remains a useful optional baseline experiment.
 
 ## 2026-10-05 — 调整学习节奏，开始 payoff
 
@@ -81,3 +81,12 @@ K=100 时，分别考虑 S_T=90、100、115：到期收益是多少，是否行�
 - Assistant reproduced the final metrics when saving. Minimal cleanup added a main guard, n >= 2 validation, metadata and loop timing; no new method or multi-N experiment.
 - Saved the requested English personal journal in 2026-10-07-gbm-pricing.md. User-run evidence is recorded without asserting independent mastery of Ito derivations.
 - Next session: multi-N repeated RMSE and cost table. Stop for today.
+
+## 2026-10-07 — Project value and research goals
+
+- User questioned whether mature literature leaves room for undergraduate research and what a non-publishable GitHub project would demonstrate.
+- Clarified that established starting methods do not imply no remaining research space. The initial literature screen does not establish an original gap or rule out future contributions.
+- A potential research path is faithful reading/reproduction → evidence of a limitation → exclusion of code errors and sampling noise → related-work check → analysis or improvement. Merely claiming a paper is incomplete is insufficient.
+- User wants a long-term project with substantive resume/GitHub value and would prefer publication if achievable. A few scripts alone are insufficient; target a complete, reproducible computational study with conclusions, limitations and a report.
+- Separate demonstrated implementation/reproduction, interpretable empirical findings, and possible original contributions. No publication promise or claim of established novelty.
+- Updated the roadmap with a 4–6 week bounded exploration, deliverable criteria and reassessment rules. Asian finite-budget controls remain a candidate, not a final topic. No new experiment conducted in this discussion.
