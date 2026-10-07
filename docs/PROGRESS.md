@@ -24,7 +24,7 @@
 
 ## Next task
 
-The user accepted the introductory code explanation and ended the session. Next session: explain the size of sampling error using the same discrete example before moving to continuous random variables and GBM. Track evidence in docs/learning/LEARNING_LOG.md; independent reproduction is not yet reported.
+The user resumed, reported AP Statistics and Math 170E background, and requested moving beyond basic statistics. Brownian increments and Ito's log-GBM correction have been explained; now connect the exact solution to risk-neutral pricing. Next implementation: a small exact GBM terminal sampler, followed by discounted payoffs and scientific checks. Independent derivation/reproduction is not yet reported.
 
 ## Repository presentation — 2026-10-06
 

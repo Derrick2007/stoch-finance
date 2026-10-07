@@ -12,7 +12,7 @@
 
 ## 当前学习位置
 
-入门：离散分布的 NumPy 抽样与 payoff 样本平均。下一步根据反馈讲抽样误差，再进入连续随机变量与 GBM。
+GBM exact solution and risk-neutral pricing. Next: implement a small exact-terminal sampler, then discounted payoffs and validation.
 
 ## 2026-10-05 — 调整学习节奏，开始 payoff
 
@@ -63,3 +63,11 @@ K=100 时，分别考虑 S_T=90、100、115：到期收益是多少，是否行�
 - At the user's request, prepared an English personal journal in 2026-10-06-first-monte-carlo.md and linked it from the learning index.
 - Included the learning summary, code mapping, assistant-run experiment results, remaining topics, and review questions. No independent user run or full mastery is claimed.
 - Stop teaching for today. Resume with sampling error in the same discrete example next session.
+
+## 2026-10-06 — Statistics background, Ito formula, and pricing assumptions
+
+- The user reported AP Statistics and Math 170E background and requested moving past elementary statistics. Use SD, SE and CLT directly, adding explanation only where needed.
+- Explained Brownian increments, the GBM SDE, and Ito's formula applied to log S. The user asked specifically what Ito's formula means; explained the second-order correction through Brownian quadratic variation. Independent derivation has not been checked.
+- This step connects integration of log GBM to exact terminal sampling and introduces real-world measure P versus risk-neutral measure Q.
+- Pricing assumptions: frictionless Black–Scholes market, no dividends, constant r and sigma, continuous trading, no arbitrage and replicability. Under Q, drift is r and discounted stock is a martingale; discounted replicable payoff expectation gives its price. This is not a forecast that actual returns equal r.
+- No new code or numerical experiment in this step. Next: implement the exact-terminal GBM sampler in a small, explained step before assembling the pricing estimate.
